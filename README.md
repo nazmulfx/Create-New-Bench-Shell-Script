@@ -1,10 +1,6 @@
-# Create-New-Bench-Shell-Script
+# About : Create-New-Bench-Shell-Script
 Interactive Bash script to quickly set up a Frappe/ERPNext bench. Initialize a bench, add apps with optional branches, create a site, install apps on it (ERPNext first if added), and start the bench—all via a guided, step-by-step interactive process for developers.
 
-
-# Frappe Bench Interactive Setup Script
-
-Interactive Bash script to quickly set up a Frappe/ERPNext bench. Initialize a bench, add apps with optional branches, create a site, automatically install apps on the site (ERPNext first if added), and start the bench—all via a guided, step-by-step interactive process for developers.
 
 ---
 

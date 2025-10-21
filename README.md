@@ -65,7 +65,7 @@ chmod +x create_bench_script.sh
 - Script will start the bench at the end.
 
 ## Frappe Bench Interactive Setup Script
-
+```bash
 1. Enter bench name: my-bench
 2. Enter Frappe branch [version-15]: 
 3. Enter path to create bench [/home/user]: 
@@ -85,7 +85,7 @@ chmod +x create_bench_script.sh
 
 ✅ Site created and apps installed.
 Starting bench...
-
+```
 
 ## Notes
 

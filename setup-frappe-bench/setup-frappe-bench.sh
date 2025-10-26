@@ -238,16 +238,27 @@ echo "======================================================="
 
 sudo apt install curl -y
 
-# Install NVM
-curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+# Install NVM (skip if already installed)
+if [ ! -d "/root/.nvm" ]; then
+  curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+fi
 
-# Load NVM in the current shell immediately
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                    # Load nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # Optional: bash_completion
+# Explicitly load NVM in this script
+export NVM_DIR="/root/.nvm"
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+    # shellcheck disable=SC1090
+    . "$NVM_DIR/nvm.sh"
+else
+    echo "ERROR: nvm.sh not found!"
+    exit 1
+fi
 
-# Install Node.js 18
+# Optional: load bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+
+# Install Node.js 18 and set default
 nvm install 18
+nvm alias default 18
 nvm use 18
 
 

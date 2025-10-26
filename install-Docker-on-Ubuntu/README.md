@@ -23,24 +23,24 @@ A simple shell script to install **Docker Engine**, **Docker CLI**, and **Docker
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/<your-username>/install-docker-ubuntu.git
+git clone https://github.com/nazmulfx/Create-New-Bench-Shell-Script.git
 cd Create-New-Bench-Shell-Script/install-Docker-on-Ubuntu
 ```
 
 ### 2️⃣ Make the script executable
 ```bash
-chmod +x install-docker.sh
+chmod +x install_docker.sh
 ```
 
 ### 3️⃣ Run the script
 ```bash
-./install-docker.sh
+./install_docker.sh
 ```
 If you get a permission error:
 ```bash
-sudo chown $USER:$USER install-docker.sh
-chmod +x install-docker.sh
-./install-docker.sh
+sudo chown $USER:$USER install_docker.sh
+chmod +x install_docker.sh
+./install_docker.sh
 ```
 
 ### 🧪 Verify the Installation

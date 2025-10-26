@@ -235,10 +235,21 @@ sudo apt-get install redis-server -y
 echo "======================================================="
 echo "STEP 8 : Install Node.js 18 via NVM"
 echo "======================================================="
+
 sudo apt install curl -y
+
+# Install NVM
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-source ~/.profile
+
+# Load NVM in the current shell immediately
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                    # Load nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # Optional: bash_completion
+
+# Install Node.js 18
 nvm install 18
+nvm use 18
+
 
 echo "======================================================="
 echo "STEP 9 : Install Yarn"

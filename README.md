@@ -36,7 +36,7 @@ Before running the script, ensure you have the following installed:
 
 ```bash
 git clone https://github.com/nazmulfx/Create-New-Bench-Shell-Script.git
-cd frappe-bench-setup
+cd Create-New-Bench-Shell-Script
 ```
 
 2. **Make the script executable:**:

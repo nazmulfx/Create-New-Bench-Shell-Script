@@ -28,9 +28,29 @@ echo \
   $(lsb_release -cs) stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-echo "📦 Installing Docker Engine, CLI, Buildx, Compose Plugin..."
+echo "📦 Installing Docker Engine, CLI, Buildx, Compose Plugin (Version 28.5.1)..."
 sudo apt update -y
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Define the specific Docker version
+DOCKER_VERSION="5:28.5.1-1~ubuntu.$(lsb_release -rs)~$(lsb_release -cs)"
+CONTAINERD_VERSION="1.7.28-1"
+COMPOSE_VERSION="2.40.2-1~ubuntu.$(lsb_release -rs)~$(lsb_release -cs)"
+BUILDX_VERSION="0.20.1-1~ubuntu.$(lsb_release -rs)~$(lsb_release -cs)"
+
+# List available versions (optional, for debugging)
+# apt-cache madison docker-ce | grep 28.5.1
+# apt-cache madison docker-compose-plugin | grep 2.40.2
+
+echo "Installing Docker CE ${DOCKER_VERSION}..."
+sudo apt install -y \
+  docker-ce=${DOCKER_VERSION} \
+  docker-ce-cli=${DOCKER_VERSION} \
+  containerd.io=${CONTAINERD_VERSION} \
+  docker-buildx-plugin=${BUILDX_VERSION} \
+  docker-compose-plugin=${COMPOSE_VERSION}
+
+# Hold the packages to prevent automatic updates
+sudo apt-mark hold docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 echo "🧍‍♂️ Adding current user to the docker group..."
 sudo usermod -aG docker $USER
